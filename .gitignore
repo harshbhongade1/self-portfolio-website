@@ -1,0 +1,39 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencies
+node_modules/
+
+# Production build outputs
+dist/
+dist-ssr/
+
+# Local environment files
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Editor & OS files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Loose root copies (curated assets are organized in public/assets/)
+/Maincrafts Certificate of Internship-495.pdf
+/Modern_FAANG_Resume (1).docx
+/Portfolio Image.jpeg
+/red-hat-system-administration-i-rh124-rha-ver-10.png
