@@ -111,16 +111,40 @@ Portfolio Website/
    npm install
    ```
 
-3. **Start the development server:**
+3. **Configure Environment Variables:**
+   Copy `.env.example` to `.env.local` and add your Supabase credentials:
+   ```bash
+   cp .env.example .env.local
+   ```
+
+4. **Run Database Migration:**
+   Execute the SQL statements inside `supabase/schema.sql` in your Supabase SQL Editor.
+
+5. **Run Security & API Tests:**
+   ```bash
+   npm test
+   ```
+
+6. **Start the development server:**
    ```bash
    npm run dev
    ```
-   Open [http://localhost:3000](http://localhost:3000) in your browser.
+   Open [http://localhost:3000](http://localhost:3000) for the portfolio or [http://localhost:3000/admin](http://localhost:3000/admin) for the Administrator Console.
 
-4. **Build for production:**
+7. **Build for production:**
    ```bash
    npm run build
    ```
+
+---
+
+## 📊 Telemetry & Admin Console
+
+- **Live Footer Counter:** Displays Total Views, Unique Visitors, and real-time Active Visitors with deduplication and React Strict Mode guards.
+- **Secure Admin Dashboard (`/admin`):** Protected by Supabase Auth and server-side JWT verification.
+- **Detailed Activity Logs:** Tracks anonymous visitor UUID, path, referrer, browser/OS/device category, and approximate region (via Vercel edge headers).
+- **Privacy-Preserving IP Processing:** Raw IPs are never stored; HMAC-SHA256 keyed hashing is used strictly server-side for rate limiting.
+- **Data Retention:** Configurable pruning of activity logs directly within the console.
 
 ---
 
