@@ -28,7 +28,7 @@ export default async function handler(req, res) {
     const pageNum = Math.max(1, parseInt(url.searchParams.get('page') || '1', 10));
     const limit = Math.min(100, Math.max(10, parseInt(url.searchParams.get('limit') || '15', 10)));
 
-    const analytics = storage.getAnalyticsData({
+    const analytics = await storage.getAnalyticsData({
       range,
       search,
       deviceFilter,

@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 
   try {
     const body = await parseRequestBody(req);
-    const result = storage.purge(body);
+    const result = await storage.purge(body);
     return res.status(200).json(result);
   } catch (err) {
     console.error('Purge error:', err);

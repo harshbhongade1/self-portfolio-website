@@ -2,10 +2,14 @@ import { parseUserAgent, parseRequestBody } from './_lib/supabase.js';
 import { storage } from './_lib/storage.js';
 
 export default async function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+
   if (req.method === 'OPTIONS') {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     return res.status(200).end();
   }
 
@@ -15,23 +19,22 @@ export default async function handler(req, res) {
 
   try {
     const body = await parseRequestBody(req);
-    const { pagePath = '/', referrer = '', isHeartbeat = false, sessionId = 'sess_' + Date.now() } = body;
+    const { pagePath = '/', referrer = '', isHeartbeat = false } = body;
 
-    // Capture visitor IP address
+    // Capture visitor IP address from Vercel / proxy headers
     let rawIp =
       req.headers['x-forwarded-for']?.split(',')[0]?.trim() ||
       req.headers['x-real-ip'] ||
       req.socket?.remoteAddress ||
       '127.0.0.1';
 
-    // Normalize local/mapped IPv6 addresses
     if (rawIp.startsWith('::ffff:')) {
       rawIp = rawIp.replace('::ffff:', '');
     } else if (rawIp === '::1') {
       rawIp = '127.0.0.1';
     }
 
-    // Geolocation from Vercel edge headers (or defaults)
+    // Geolocation from Vercel edge headers
     const country = req.headers['x-vercel-ip-country'] || 'India';
     const city = req.headers['x-vercel-ip-city'] || (rawIp === '127.0.0.1' ? 'Localhost' : 'Nagpur');
 
@@ -49,7 +52,7 @@ export default async function handler(req, res) {
       }
     }
 
-    const stats = storage.recordVisit({
+    const stats = await storage.recordVisit({
       ip: rawIp,
       page: pagePath,
       referrer: referrerDomain,
@@ -59,7 +62,6 @@ export default async function handler(req, res) {
       city,
       country,
       isHeartbeat,
-      sessionId,
     });
 
     return res.status(200).json({

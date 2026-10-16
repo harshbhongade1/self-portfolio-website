@@ -26,11 +26,28 @@ export default function VisitorCounter({ onOpenPrivacy, onNavigateAdmin }) {
 
   useEffect(() => {
     loadStats();
-    // Auto-update every 35 seconds without full page reload
+
+    // Listen for immediate real-time updates from page tracking & heartbeats
+    const handleUpdated = (e) => {
+      if (e.detail) {
+        setStats({
+          ...e.detail,
+          configured: true,
+        });
+        setLoading(false);
+      }
+    };
+    window.addEventListener('hb_stats_updated', handleUpdated);
+
+    // Auto-update every 15 seconds without full page reload
     const interval = setInterval(() => {
       loadStats();
-    }, 35000);
-    return () => clearInterval(interval);
+    }, 15000);
+
+    return () => {
+      window.removeEventListener('hb_stats_updated', handleUpdated);
+      clearInterval(interval);
+    };
   }, []);
 
   return (

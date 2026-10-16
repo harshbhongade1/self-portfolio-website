@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     let ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.socket?.remoteAddress || '127.0.0.1';
     if (ip.startsWith('::ffff:')) ip = ip.replace('::ffff:', '');
 
-    const contact = storage.addContact({
+    const contact = await storage.addContact({
       ip,
       name: name.trim().slice(0, 100),
       email: email.trim().slice(0, 120),

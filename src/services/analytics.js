@@ -60,8 +60,8 @@ const DEDUPLICATION_INTERVAL_MS = 15000; // 15 seconds
 export async function trackPageView(pagePath = window.location.pathname + window.location.hash) {
   const now = Date.now();
 
-  // Deduplicate if same path was recorded very recently
-  if (lastTrackedPath === pagePath && now - lastTrackedTime < DEDUPLICATION_INTERVAL_MS) {
+  // Deduplicate if same path was recorded very recently (< 5 seconds)
+  if (lastTrackedPath === pagePath && now - lastTrackedTime < 5000) {
     return null;
   }
 
@@ -73,8 +73,9 @@ export async function trackPageView(pagePath = window.location.pathname + window
   const referrer = document.referrer || '';
 
   try {
-    const response = await fetch('/api/track', {
+    const response = await fetch(`/api/track?_t=${now}`, {
       method: 'POST',
+      cache: 'no-store',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -92,9 +93,12 @@ export async function trackPageView(pagePath = window.location.pathname + window
     }
 
     const data = await response.json();
+    if (data && data.stats) {
+      // Immediately notify footer counter and any active UI components
+      window.dispatchEvent(new CustomEvent('hb_stats_updated', { detail: data.stats }));
+    }
     return data;
   } catch (err) {
-    // Graceful silent fallback for client
     console.debug('Analytics track ping:', err.message);
     return null;
   }
@@ -108,8 +112,9 @@ export async function sendHeartbeat(pagePath = window.location.pathname + window
   const sessionId = getSessionId();
 
   try {
-    const response = await fetch('/api/track', {
+    const response = await fetch(`/api/track?_t=${Date.now()}`, {
       method: 'POST',
+      cache: 'no-store',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -122,7 +127,11 @@ export async function sendHeartbeat(pagePath = window.location.pathname + window
     });
 
     if (response.ok) {
-      return await response.json();
+      const data = await response.json();
+      if (data && data.stats) {
+        window.dispatchEvent(new CustomEvent('hb_stats_updated', { detail: data.stats }));
+      }
+      return data;
     }
   } catch (err) {
     console.debug('Heartbeat ping:', err.message);
@@ -135,7 +144,8 @@ export async function sendHeartbeat(pagePath = window.location.pathname + window
  */
 export async function fetchLiveStats() {
   try {
-    const response = await fetch('/api/stats', {
+    const response = await fetch(`/api/stats?_t=${Date.now()}`, {
+      cache: 'no-store',
       headers: {
         'Accept': 'application/json',
       },

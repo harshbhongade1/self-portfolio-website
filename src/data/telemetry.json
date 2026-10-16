@@ -390,5 +390,18 @@
       "lastActive": "2026-10-16T07:27:17.993Z"
     }
   },
-  "contacts": []
+  "contacts": [],
+  "totalVisits": 29,
+  "uniqueVisitors": 15,
+  "activeVisitors": 2,
+  "logs": [
+    {
+      "ip": "103.177.237.130",
+      "page": "/",
+      "device": "Mobile",
+      "browser": "Chrome",
+      "os": "Android",
+      "timestamp": "2026-10-16T07:36:42.148Z"
+    }
+  ]
 }
