@@ -1,42 +1,21 @@
-import { getSupabaseAdmin } from './_lib/supabase.js';
+import { storage } from './_lib/storage.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Response headers
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=30');
-
-  const supabase = getSupabaseAdmin();
-  if (!supabase) {
-    const { localStore } = await import('./_lib/localStore.js');
-    return res.status(200).json({
-      configured: true,
-      stats: localStore.getStats(),
-    });
-  }
+  res.setHeader('Cache-Control', 'public, s-maxage=5, stale-while-revalidate=15');
 
   try {
-    const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000).toISOString();
-
-    const [{ count: totalVisits }, { count: uniqueVisitors }, { count: activeSessions }] = await Promise.all([
-      supabase.from('page_views').select('*', { count: 'exact', head: true }),
-      supabase.from('visitors').select('*', { count: 'exact', head: true }),
-      supabase.from('active_sessions').select('*', { count: 'exact', head: true }).gte('last_active_at', fiveMinutesAgo),
-    ]);
-
+    const stats = storage.getStats();
     return res.status(200).json({
       configured: true,
-      stats: {
-        totalVisits: totalVisits || 0,
-        uniqueVisitors: uniqueVisitors || 0,
-        activeVisitors: activeSessions || 0,
-      },
+      stats,
     });
   } catch (err) {
-    console.error('Error fetching public stats:', err);
+    console.error('Stats error:', err);
     return res.status(500).json({ error: 'Failed to retrieve stats' });
   }
 }

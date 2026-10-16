@@ -1,0 +1,394 @@
+{
+  "pageViews": [
+    {
+      "id": 128,
+      "ip": "185.199.108.153",
+      "page": "/#contact",
+      "referrer": "Direct",
+      "browser": "Chrome",
+      "os": "iOS",
+      "device": "Mobile",
+      "location": "Frankfurt, Germany",
+      "timestamp": "2026-10-13T09:27:17.993Z"
+    },
+    {
+      "id": 127,
+      "ip": "104.28.19.42",
+      "page": "/#about",
+      "referrer": "linkedin.com",
+      "browser": "Edge",
+      "os": "Android",
+      "device": "Mobile",
+      "location": "San Jose, United States",
+      "timestamp": "2026-10-13T11:57:17.993Z"
+    },
+    {
+      "id": 126,
+      "ip": "157.34.89.201",
+      "page": "/#skills",
+      "referrer": "github.com",
+      "browser": "Safari",
+      "os": "macOS",
+      "device": "Desktop",
+      "location": "Pune, India",
+      "timestamp": "2026-10-13T14:27:17.993Z"
+    },
+    {
+      "id": 125,
+      "ip": "49.36.128.45",
+      "page": "/#projects",
+      "referrer": "Direct",
+      "browser": "Firefox",
+      "os": "Windows",
+      "device": "Desktop",
+      "location": "Mumbai, India",
+      "timestamp": "2026-10-13T16:57:17.993Z"
+    },
+    {
+      "id": 124,
+      "ip": "103.21.244.12",
+      "page": "/",
+      "referrer": "Direct",
+      "browser": "Chrome",
+      "os": "Linux",
+      "device": "Tablet",
+      "location": "Nagpur, India",
+      "timestamp": "2026-10-13T19:27:17.993Z"
+    },
+    {
+      "id": 123,
+      "ip": "106.195.6.80",
+      "page": "/#certificates",
+      "referrer": "Direct",
+      "browser": "Edge",
+      "os": "iOS",
+      "device": "Mobile",
+      "location": "Bengaluru, India",
+      "timestamp": "2026-10-13T21:57:17.993Z"
+    },
+    {
+      "id": 122,
+      "ip": "185.199.108.153",
+      "page": "/#contact",
+      "referrer": "linkedin.com",
+      "browser": "Safari",
+      "os": "Android",
+      "device": "Mobile",
+      "location": "Frankfurt, Germany",
+      "timestamp": "2026-10-14T00:27:17.993Z"
+    },
+    {
+      "id": 121,
+      "ip": "104.28.19.42",
+      "page": "/#about",
+      "referrer": "github.com",
+      "browser": "Firefox",
+      "os": "macOS",
+      "device": "Desktop",
+      "location": "San Jose, United States",
+      "timestamp": "2026-10-14T02:57:17.993Z"
+    },
+    {
+      "id": 120,
+      "ip": "157.34.89.201",
+      "page": "/#skills",
+      "referrer": "Direct",
+      "browser": "Chrome",
+      "os": "Windows",
+      "device": "Desktop",
+      "location": "Pune, India",
+      "timestamp": "2026-10-14T05:27:17.993Z"
+    },
+    {
+      "id": 119,
+      "ip": "49.36.128.45",
+      "page": "/#projects",
+      "referrer": "Direct",
+      "browser": "Edge",
+      "os": "Linux",
+      "device": "Tablet",
+      "location": "Mumbai, India",
+      "timestamp": "2026-10-14T07:57:17.993Z"
+    },
+    {
+      "id": 118,
+      "ip": "103.21.244.12",
+      "page": "/",
+      "referrer": "Direct",
+      "browser": "Safari",
+      "os": "iOS",
+      "device": "Mobile",
+      "location": "Nagpur, India",
+      "timestamp": "2026-10-14T10:27:17.993Z"
+    },
+    {
+      "id": 117,
+      "ip": "106.195.6.80",
+      "page": "/#certificates",
+      "referrer": "linkedin.com",
+      "browser": "Firefox",
+      "os": "Android",
+      "device": "Mobile",
+      "location": "Bengaluru, India",
+      "timestamp": "2026-10-14T12:57:17.993Z"
+    },
+    {
+      "id": 116,
+      "ip": "185.199.108.153",
+      "page": "/#contact",
+      "referrer": "github.com",
+      "browser": "Chrome",
+      "os": "macOS",
+      "device": "Desktop",
+      "location": "Frankfurt, Germany",
+      "timestamp": "2026-10-14T15:27:17.993Z"
+    },
+    {
+      "id": 115,
+      "ip": "104.28.19.42",
+      "page": "/#about",
+      "referrer": "Direct",
+      "browser": "Edge",
+      "os": "Windows",
+      "device": "Desktop",
+      "location": "San Jose, United States",
+      "timestamp": "2026-10-14T17:57:17.993Z"
+    },
+    {
+      "id": 114,
+      "ip": "157.34.89.201",
+      "page": "/#skills",
+      "referrer": "Direct",
+      "browser": "Safari",
+      "os": "Linux",
+      "device": "Tablet",
+      "location": "Pune, India",
+      "timestamp": "2026-10-14T20:27:17.993Z"
+    },
+    {
+      "id": 113,
+      "ip": "49.36.128.45",
+      "page": "/#projects",
+      "referrer": "Direct",
+      "browser": "Firefox",
+      "os": "iOS",
+      "device": "Mobile",
+      "location": "Mumbai, India",
+      "timestamp": "2026-10-14T22:57:17.993Z"
+    },
+    {
+      "id": 112,
+      "ip": "103.21.244.12",
+      "page": "/",
+      "referrer": "linkedin.com",
+      "browser": "Chrome",
+      "os": "Android",
+      "device": "Mobile",
+      "location": "Nagpur, India",
+      "timestamp": "2026-10-15T01:27:17.993Z"
+    },
+    {
+      "id": 111,
+      "ip": "106.195.6.80",
+      "page": "/#certificates",
+      "referrer": "github.com",
+      "browser": "Edge",
+      "os": "macOS",
+      "device": "Desktop",
+      "location": "Bengaluru, India",
+      "timestamp": "2026-10-15T03:57:17.993Z"
+    },
+    {
+      "id": 110,
+      "ip": "185.199.108.153",
+      "page": "/#contact",
+      "referrer": "Direct",
+      "browser": "Safari",
+      "os": "Windows",
+      "device": "Desktop",
+      "location": "Frankfurt, Germany",
+      "timestamp": "2026-10-15T06:27:17.993Z"
+    },
+    {
+      "id": 109,
+      "ip": "104.28.19.42",
+      "page": "/#about",
+      "referrer": "Direct",
+      "browser": "Firefox",
+      "os": "Linux",
+      "device": "Tablet",
+      "location": "San Jose, United States",
+      "timestamp": "2026-10-15T08:57:17.993Z"
+    },
+    {
+      "id": 108,
+      "ip": "157.34.89.201",
+      "page": "/#skills",
+      "referrer": "Direct",
+      "browser": "Chrome",
+      "os": "iOS",
+      "device": "Mobile",
+      "location": "Pune, India",
+      "timestamp": "2026-10-15T11:27:17.993Z"
+    },
+    {
+      "id": 107,
+      "ip": "49.36.128.45",
+      "page": "/#projects",
+      "referrer": "linkedin.com",
+      "browser": "Edge",
+      "os": "Android",
+      "device": "Mobile",
+      "location": "Mumbai, India",
+      "timestamp": "2026-10-15T13:57:17.993Z"
+    },
+    {
+      "id": 106,
+      "ip": "103.21.244.12",
+      "page": "/",
+      "referrer": "github.com",
+      "browser": "Safari",
+      "os": "macOS",
+      "device": "Desktop",
+      "location": "Nagpur, India",
+      "timestamp": "2026-10-15T16:27:17.993Z"
+    },
+    {
+      "id": 105,
+      "ip": "106.195.6.80",
+      "page": "/#certificates",
+      "referrer": "Direct",
+      "browser": "Firefox",
+      "os": "Windows",
+      "device": "Desktop",
+      "location": "Bengaluru, India",
+      "timestamp": "2026-10-15T18:57:17.993Z"
+    },
+    {
+      "id": 104,
+      "ip": "185.199.108.153",
+      "page": "/#contact",
+      "referrer": "Direct",
+      "browser": "Chrome",
+      "os": "Linux",
+      "device": "Tablet",
+      "location": "Frankfurt, Germany",
+      "timestamp": "2026-10-15T21:27:17.993Z"
+    },
+    {
+      "id": 103,
+      "ip": "104.28.19.42",
+      "page": "/#about",
+      "referrer": "Direct",
+      "browser": "Edge",
+      "os": "iOS",
+      "device": "Mobile",
+      "location": "San Jose, United States",
+      "timestamp": "2026-10-15T23:57:17.993Z"
+    },
+    {
+      "id": 102,
+      "ip": "157.34.89.201",
+      "page": "/#skills",
+      "referrer": "linkedin.com",
+      "browser": "Safari",
+      "os": "Android",
+      "device": "Mobile",
+      "location": "Pune, India",
+      "timestamp": "2026-10-16T02:27:17.993Z"
+    },
+    {
+      "id": 101,
+      "ip": "49.36.128.45",
+      "page": "/#projects",
+      "referrer": "github.com",
+      "browser": "Firefox",
+      "os": "macOS",
+      "device": "Desktop",
+      "location": "Mumbai, India",
+      "timestamp": "2026-10-16T04:57:17.993Z"
+    }
+  ],
+  "visitors": {
+    "185.199.108.153": {
+      "ip": "185.199.108.153",
+      "visitCount": 5,
+      "browser": "Chrome",
+      "os": "iOS",
+      "device": "Mobile",
+      "city": "Frankfurt",
+      "country": "Germany",
+      "referrer": "Direct",
+      "firstSeen": "2026-10-13T09:27:17.993Z",
+      "lastSeen": "2026-10-15T21:27:17.993Z"
+    },
+    "104.28.19.42": {
+      "ip": "104.28.19.42",
+      "visitCount": 5,
+      "browser": "Edge",
+      "os": "Android",
+      "device": "Mobile",
+      "city": "San Jose",
+      "country": "United States",
+      "referrer": "linkedin.com",
+      "firstSeen": "2026-10-13T11:57:17.993Z",
+      "lastSeen": "2026-10-15T23:57:17.993Z"
+    },
+    "157.34.89.201": {
+      "ip": "157.34.89.201",
+      "visitCount": 5,
+      "browser": "Safari",
+      "os": "macOS",
+      "device": "Desktop",
+      "city": "Pune",
+      "country": "India",
+      "referrer": "github.com",
+      "firstSeen": "2026-10-13T14:27:17.993Z",
+      "lastSeen": "2026-10-16T02:27:17.993Z"
+    },
+    "49.36.128.45": {
+      "ip": "49.36.128.45",
+      "visitCount": 5,
+      "browser": "Firefox",
+      "os": "Windows",
+      "device": "Desktop",
+      "city": "Mumbai",
+      "country": "India",
+      "referrer": "Direct",
+      "firstSeen": "2026-10-13T16:57:17.993Z",
+      "lastSeen": "2026-10-16T04:57:17.993Z"
+    },
+    "103.21.244.12": {
+      "ip": "103.21.244.12",
+      "visitCount": 4,
+      "browser": "Chrome",
+      "os": "Linux",
+      "device": "Tablet",
+      "city": "Nagpur",
+      "country": "India",
+      "referrer": "Direct",
+      "firstSeen": "2026-10-13T19:27:17.993Z",
+      "lastSeen": "2026-10-15T16:27:17.993Z"
+    },
+    "106.195.6.80": {
+      "ip": "106.195.6.80",
+      "visitCount": 4,
+      "browser": "Edge",
+      "os": "iOS",
+      "device": "Mobile",
+      "city": "Bengaluru",
+      "country": "India",
+      "referrer": "Direct",
+      "firstSeen": "2026-10-13T21:57:17.993Z",
+      "lastSeen": "2026-10-15T18:57:17.993Z"
+    }
+  },
+  "activeSessions": {
+    "init-active": {
+      "ip": "103.21.244.12",
+      "page": "/",
+      "lastActive": "2026-10-16T07:27:17.993Z"
+    }
+  },
+  "contacts": []
+}

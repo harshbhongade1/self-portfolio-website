@@ -764,7 +764,7 @@ export default function AdminDashboard({ session, onLogout, onReturnHome }) {
                 <Search size={16} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
                 <input
                   type="text"
-                  placeholder="Search visitor ID, page, or referrer..."
+                  placeholder="Search by IP address, page, or referrer..."
                   value={search}
                   onChange={(e) => {
                     setSearch(e.target.value);
@@ -838,13 +838,13 @@ export default function AdminDashboard({ session, onLogout, onReturnHome }) {
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.82rem' }}>
                 <thead>
                   <tr style={{ borderBottom: '1px solid var(--border-subtle)', color: 'var(--text-muted)', textAlign: 'left' }}>
-                    <th style={{ padding: '0.75rem' }}>Visitor ID</th>
+                    <th style={{ padding: '0.75rem' }}>Visitor IP Address</th>
                     <th style={{ padding: '0.75rem' }}>Timestamp</th>
                     <th style={{ padding: '0.75rem' }}>Page Path</th>
                     <th style={{ padding: '0.75rem' }}>Referrer</th>
                     <th style={{ padding: '0.75rem' }}>Device & Client</th>
-                    <th style={{ padding: '0.75rem' }}>Approx. Region</th>
-                    <th style={{ padding: '0.75rem', textAlign: 'center' }}>Total Visits</th>
+                    <th style={{ padding: '0.75rem' }}>Location</th>
+                    <th style={{ padding: '0.75rem', textAlign: 'center' }}>Visits</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -857,8 +857,17 @@ export default function AdminDashboard({ session, onLogout, onReturnHome }) {
                   ) : (
                     logs.map((log) => (
                       <tr key={log.id} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.03)', transition: 'background 0.2s' }}>
-                        <td style={{ padding: '0.75rem', fontFamily: 'var(--font-mono)', color: '#a78bfa' }} title={log.visitorId}>
-                          {log.maskedVisitorId}
+                        <td style={{ padding: '0.75rem', fontFamily: 'var(--font-mono)', color: '#38bdf8', fontWeight: 600 }}>
+                          <span
+                            style={{
+                              background: 'rgba(56, 189, 248, 0.1)',
+                              border: '1px solid rgba(56, 189, 248, 0.25)',
+                              padding: '2px 8px',
+                              borderRadius: '6px',
+                            }}
+                          >
+                            {log.ip || '127.0.0.1'}
+                          </span>
                         </td>
                         <td style={{ padding: '0.75rem', color: 'var(--text-secondary)', whiteSpace: 'nowrap' }}>
                           {new Date(log.timestamp).toLocaleString(undefined, {

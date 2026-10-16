@@ -1,4 +1,5 @@
-import { getSupabaseAdmin, parseRequestBody } from './_lib/supabase.js';
+import { parseRequestBody } from './_lib/supabase.js';
+import { storage } from './_lib/storage.js';
 
 export default async function handler(req, res) {
   if (req.method === 'OPTIONS') {
@@ -14,51 +15,32 @@ export default async function handler(req, res) {
 
   try {
     const body = await parseRequestBody(req);
-    const { visitorId, name, email, message = '' } = body;
+    const { name, email, message = '' } = body;
 
-    // Strict input validation
     if (!name || !name.trim()) {
       return res.status(400).json({ error: 'Name is required' });
     }
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
-      return res.status(400).json({ error: 'Valid email address is required' });
+      return res.status(400).json({ error: 'Valid email is required' });
     }
 
-    const supabase = getSupabaseAdmin();
-    if (!supabase) {
-      const { localStore } = await import('./_lib/localStore.js');
-      const contact = localStore.addContact({
-        visitorId,
-        name: name.trim().slice(0, 100),
-        email: email.trim().slice(0, 120),
-        message: message.trim().slice(0, 500),
-      });
-      return res.status(200).json({
-        success: true,
-        message: 'Thank you for connecting! Your details have been stored securely.',
-        id: contact.id,
-      });
-    }
-    const { data, error } = await supabase.from('consented_contacts').insert({
-      visitor_id: visitorId || null,
+    let ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.socket?.remoteAddress || '127.0.0.1';
+    if (ip.startsWith('::ffff:')) ip = ip.replace('::ffff:', '');
+
+    const contact = storage.addContact({
+      ip,
       name: name.trim().slice(0, 100),
       email: email.trim().slice(0, 120),
       message: message.trim().slice(0, 500),
-      created_at: new Date().toISOString(),
-    }).select('id').single();
-
-    if (error) {
-      console.error('Error recording voluntary contact:', error);
-      return res.status(500).json({ error: 'Failed to save contact details' });
-    }
+    });
 
     return res.status(200).json({
       success: true,
       message: 'Thank you for connecting! Your details have been stored securely.',
-      id: data.id,
+      id: contact.id,
     });
   } catch (err) {
-    console.error('Error in identify handler:', err);
-    return res.status(500).json({ error: 'Internal server error' });
+    console.error('Identify error:', err);
+    return res.status(500).json({ error: 'Failed to record contact' });
   }
 }
